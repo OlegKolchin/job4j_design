@@ -20,13 +20,13 @@ public class EvenIt implements Iterator<Integer> {
     @Override
     public boolean hasNext() {
         this.skipUneven();
-        return point < data.length && data[point] % 2 == 0;
+        return point < data.length;
     }
 
     @Override
     public Integer next() {
         this.skipUneven();
-        if (point >= data.length) {
+        if (!hasNext()) {
             throw new NoSuchElementException();
         }
         return data[point++];
