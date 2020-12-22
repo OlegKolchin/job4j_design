@@ -8,7 +8,6 @@ public class SimpleArray<T> implements Iterable<T> {
 
     private final T[] array;
     private int point = 0;
-    private int iter = 0;
 
     public SimpleArray(int size) {
         this.array = (T[]) new Object[size];
@@ -16,7 +15,7 @@ public class SimpleArray<T> implements Iterable<T> {
 
     public void add(T model) {
         array[point++] = model;
-        }
+    }
 
     private void checkIndex(int index) {
         Objects.checkIndex(index, point);
@@ -42,10 +41,11 @@ public class SimpleArray<T> implements Iterable<T> {
     @Override
     public Iterator<T> iterator() {
         return new Iterator<>() {
+            int iter = 0;
 
             @Override
             public boolean hasNext() {
-                return iter <= point;
+                return iter < point;
             }
 
             @Override

@@ -5,6 +5,9 @@ import static org.junit.Assert.assertThat;
 import static org.hamcrest.Matchers.is;
 
 import org.junit.Test;
+
+import java.util.Iterator;
+
 public class SimpleArrayTest {
 
     @Test
@@ -72,11 +75,13 @@ public class SimpleArrayTest {
         array.add("Petr");
         array.add("Masha");
         array.add("Grisha");
-        assertThat(array.iterator().next(), is("Oleg"));
-        assertThat(array.iterator().next(), is("Petr"));
-        assertThat(array.iterator().next(), is("Masha"));
-        assertThat(array.iterator().next(), is("Grisha"));
-        assertThat(array.iterator().next(), is(nullValue()));
+        array.add(null);
+        Iterator<String> iterator = array.iterator();
+        assertThat(iterator.next(), is("Oleg"));
+        assertThat(iterator.next(), is("Petr"));
+        assertThat(iterator.next(), is("Masha"));
+        assertThat(iterator.next(), is("Grisha"));
+        assertThat(iterator.next(), is(nullValue()));
     }
 
 }
