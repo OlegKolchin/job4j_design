@@ -14,10 +14,12 @@ public final class MemStore<T extends Base> implements Store<T> {
     }
 
     private int findIndex(String id) {
-        Optional<T> t = mem.stream()
-                .filter(s -> s.getId().equals(id))
-                .findFirst();
-        return mem.indexOf(t);
+        for (int index = 0; index < mem.size(); index ++) {
+            if (mem.get(index).getId().equals(id)) {
+                return index;
+            }
+        }
+        return -1;
     }
 
     @Override
