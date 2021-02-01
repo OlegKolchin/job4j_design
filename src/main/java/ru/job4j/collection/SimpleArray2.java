@@ -14,7 +14,12 @@ public class SimpleArray2<T> implements Iterable<T> {
 
 
     public void add(T model) {
-        array = Arrays.copyOf(array, array.length + 1);
+        if (array.length == 0 || array.length == 1) {
+            array = Arrays.copyOf(array, array.length + 1);
+        }
+        if (point == array.length - 1) {
+            array = Arrays.copyOf(array, array.length + (array.length / 2));
+        }
         array[point++] = model;
         modCount++;
     }
