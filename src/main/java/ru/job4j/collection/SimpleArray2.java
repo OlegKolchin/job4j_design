@@ -9,14 +9,11 @@ public class SimpleArray2<T> implements Iterable<T> {
     private int modCount = 0;
 
     public SimpleArray2() {
-        this.array = (T[]) new Object[0];
+        this.array = (T[]) new Object[10];
     }
 
 
     public void add(T model) {
-        if (array.length == 0 || array.length == 1) {
-            array = Arrays.copyOf(array, array.length + 1);
-        }
         if (point == array.length - 1) {
             array = Arrays.copyOf(array, array.length + (array.length / 2));
         }
