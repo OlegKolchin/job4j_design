@@ -7,16 +7,21 @@ public class SimpleQueue<T> {
 
     public T pop() {
         int count = 0;
-        while (count < index) {
-            out.push(in.pop());
-            count++;
-        }
-        T value = out.pop();
-        index--;
-        count = 0;
-        while (count < index) {
-            in.push(out.pop());
-            count++;
+        T value;
+        while (true) {
+           out.push(in.pop());
+           index--;
+           count++;
+           if (index == 0) {
+               value = out.pop();
+               count--;
+               while (count != 0) {
+                   in.push(out.pop());
+                   index++;
+                   count--;
+               }
+               break;
+           }
         }
         return value;
     }
