@@ -5,18 +5,12 @@ public class SimpleQueue<T> {
     private final SimpleStack<T> out = new SimpleStack<>();
 
     public T pop() {
-        T value;
-        while (true) {
-           out.push(in.pop());
-           if (in.isEmpty()) {
-               value = out.pop();
-               while (!out.isEmpty()) {
-                   in.push(out.pop());
-               }
-               break;
-           }
+        if (out.isEmpty()) {
+            while (!in.isEmpty()) {
+                out.push(in.pop());
+            }
         }
-        return value;
+        return out.pop();
     }
 
     public void push(T value) {
