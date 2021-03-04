@@ -26,8 +26,10 @@ public class ListUtils {
                 break;
             }
             i.next();
+            if (!i.hasNext()) {
+                i.add(value);
+            }
         }
-
     }
 
     public static <T> List<T> removeIf(List<T> list, Predicate<T> filter) {
@@ -53,7 +55,7 @@ public class ListUtils {
         while (i.hasNext()) {
             T t = i.next();
             for (T element : elements) {
-                if (element == t) {
+                if (element.equals(t)) {
                     i.remove();
                 }
             }

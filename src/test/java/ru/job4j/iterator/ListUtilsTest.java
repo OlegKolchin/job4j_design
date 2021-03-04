@@ -46,6 +46,20 @@ public class ListUtilsTest {
     }
 
     @Test
+    public void whenAddAfterLast() {
+        List<Integer> input = new ArrayList<>(Arrays.asList(1, 3));
+        ListUtils.addAfter(input, 1, 2);
+        assertThat(Arrays.asList(1, 3, 2), Is.is(input));
+    }
+
+    @Test
+    public void whenAddAfterLast2() {
+        List<Integer> input = new ArrayList<>(Arrays.asList(1, 3, 4));
+        ListUtils.addAfter(input, 2, 2);
+        assertThat(Arrays.asList(1, 3, 4, 2), Is.is(input));
+    }
+
+    @Test
     public void whenRemoveIf() {
         List<Integer> input = new ArrayList<>(Arrays.asList(1, 2, 3));
         Predicate<Integer> predicate = n -> n == 2;
