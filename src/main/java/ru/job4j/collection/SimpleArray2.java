@@ -4,6 +4,10 @@ import java.util.*;
 
 public class SimpleArray2<T> implements Iterable<T> {
 
+    public T[] getArray() {
+        return array;
+    }
+
     private T[] array;
     private int point = 0;
     private int modCount = 0;

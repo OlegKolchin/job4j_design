@@ -20,9 +20,9 @@ public class SimpleSetTest {
     @Test
     public void whenAddFew() {
         SimpleSet<String> set = new SimpleSet<>();
-        Iterator<String> it = set.iterator();
         set.add("First");
         set.add("Second");
+        Iterator<String> it = set.iterator();
         assertThat(it.next(), is("First"));
         assertThat(it.next(), is("Second"));
     }
@@ -30,14 +30,13 @@ public class SimpleSetTest {
     @Test
     public void whenAddDublicate() {
         SimpleSet<String> set = new SimpleSet<>();
-        Iterator<String> it = set.iterator();
         set.add("First");
         set.add("First");
         set.add("Second");
+        Iterator<String> it = set.iterator();
         assertThat(it.next(), is("First"));
         assertThat(it.next(), is("Second"));
     }
-
 
     @Test (expected = NoSuchElementException.class)
     public void whenNextNull() {
@@ -45,5 +44,4 @@ public class SimpleSetTest {
         Iterator<String> it = set.iterator();
         it.next();
     }
-
 }
