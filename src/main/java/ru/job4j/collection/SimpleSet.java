@@ -7,7 +7,7 @@ public class SimpleSet<T>{
 
     public boolean contains (T model) {
         for (T t : array.getArray()) {
-            if (t != null && t.equals(model)) {
+            if (Objects.equals(t, model)) {
                 return true;
             }
         }
