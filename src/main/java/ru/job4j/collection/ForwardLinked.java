@@ -59,9 +59,7 @@ public class ForwardLinked<T> implements Iterable<T> {
             current = next;
         }
         head = reversed;
-
     }
-
 
     @Override
     public Iterator<T> iterator() {
